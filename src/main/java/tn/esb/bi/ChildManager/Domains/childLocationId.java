@@ -1,4 +1,4 @@
-package tn.esb.bi.ChildManager.Entities;
+package tn.esb.bi.ChildManager.Domains;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

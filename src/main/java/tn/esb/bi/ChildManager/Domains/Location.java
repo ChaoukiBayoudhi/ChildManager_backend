@@ -1,4 +1,4 @@
-package tn.esb.bi.ChildManager.Entities;
+package tn.esb.bi.ChildManager.Domains;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,8 +13,7 @@ import java.util.Set;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Location {
-    @Id
-    @GeneratedValue
+    @Id    @GeneratedValue
     private Long id;
     @EqualsAndHashCode.Include
     @Column(unique = true,nullable = false,length = 100)
@@ -24,4 +23,10 @@ public class Location {
     @OneToMany(mappedBy="child")
     private Set<childLocation> children = new HashSet<>();
 
+    public Location(String name, String adress, String remarks, Set<childLocation> children) {
+        this.name = name;
+        Adress = adress;
+        Remarks = remarks;
+        this.children = children;
+    }
 }

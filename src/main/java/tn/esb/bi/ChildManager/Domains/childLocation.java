@@ -1,4 +1,4 @@
-package tn.esb.bi.ChildManager.Entities;
+package tn.esb.bi.ChildManager.Domains;
 
 import lombok.Data;
 
@@ -22,4 +22,11 @@ public class childLocation {
     @ManyToOne
     @MapsId("locationId")
     private Location location;
+
+    public childLocation(LocalDate date, LocalTime time, Child child, Location location) {
+        this.date = date;
+        this.time = time;
+        this.child = child;
+        this.location = location;
+    }
 }

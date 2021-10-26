@@ -1,10 +1,9 @@
-package tn.esb.bi.ChildManager.Entities;
+package tn.esb.bi.ChildManager.Domains;
 
 //import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,8 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString(exclude = "photo" +
-        "")
+@ToString(exclude = "photo")
 @Entity
 @Table(name="child_tab")
 public class Child {
@@ -27,7 +25,7 @@ public class Child {
     private String firstName;
     @NonNull
     @EqualsAndHashCode.Include
-    private String LastName;
+    private String lastName;
     //private SimpleDateFormat birthDate;
     @EqualsAndHashCode.Include
     @NonNull
@@ -41,7 +39,7 @@ public class Child {
 
     public Child(@NonNull String firstName, @NonNull String lastName, @NonNull LocalDate birthDate, String studyYear, byte[] photo) {
         this.firstName = firstName;
-        LastName = lastName;
+        this.lastName = lastName;
         this.birthDate = birthDate;
         this.studyYear = studyYear;
         this.photo = photo;
