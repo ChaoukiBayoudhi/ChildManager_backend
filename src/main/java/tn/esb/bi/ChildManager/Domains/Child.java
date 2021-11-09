@@ -14,7 +14,7 @@ import java.util.Set;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString(exclude = "photo")
 @Entity
-@Table(name="child_tab")
+//@Table(name="child_tab")
 public class Child {
     @Id
     @GeneratedValue
@@ -36,7 +36,7 @@ public class Child {
     private byte[] photo;//pour stocker la photo elle même
     //lien entre Child et Task
     @OneToMany(mappedBy="child",cascade=CascadeType.ALL)
-    private Set<Task> childTasks=new HashSet<>();
+    private Set<childPlace> childTasks=new HashSet<>();
 
 
 }

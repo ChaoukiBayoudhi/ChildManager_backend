@@ -6,16 +6,12 @@ import tn.esb.bi.ChildManager.Enumerations.TaskState;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data //remplace @Getter, @Setter, @RequiredArgsConstructor, @EqualsAndHashCode, @ToString
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString(exclude = "photo")
 @Entity
-@Table(name="child_tab")
-
 public class Task {
     @Id
     @GeneratedValue
@@ -40,7 +36,5 @@ public class Task {
     @ManyToOne
     @JoinColumn(name="id_location",referencedColumnName = "id")
     private Location taskLocation;
-    @OneToMany(mappedBy="location")
-    private Set<taskLocation> locations = new HashSet<>();
 
 }
