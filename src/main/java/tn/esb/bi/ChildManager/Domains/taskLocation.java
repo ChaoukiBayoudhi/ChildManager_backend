@@ -11,22 +11,17 @@ import java.time.LocalTime;
 
 @Data
 @Entity
-public class childLocation {
+public class taskLocation {
     @EmbeddedId
-    private childLocationId id;
+    private taskLocationId id;
     private LocalDate date;
     private LocalTime time;
     @ManyToOne
-    @MapsId("childId")
-    private Child child;
+    @MapsId("taskId")
+    private Task task;
     @ManyToOne
     @MapsId("locationId")
     private Location location;
 
-    public childLocation(LocalDate date, LocalTime time, Child child, Location location) {
-        this.date = date;
-        this.time = time;
-        this.child = child;
-        this.location = location;
-    }
+
 }

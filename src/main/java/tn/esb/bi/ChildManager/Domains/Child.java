@@ -34,14 +34,9 @@ public class Child {
     //private String photo; //pour stocker le chemin de la photo
     //ou bien
     private byte[] photo;//pour stocker la photo elle même
-    @OneToMany(mappedBy="location")
-    private Set<childLocation> locations = new HashSet<>();
+    //lien entre Child et Task
+    @OneToMany(mappedBy="child",cascade=CascadeType.ALL)
+    private Set<Task> childTasks=new HashSet<>();
 
-    public Child(@NonNull String firstName, @NonNull String lastName, @NonNull LocalDate birthDate, String studyYear, byte[] photo) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.studyYear = studyYear;
-        this.photo = photo;
-    }
+
 }

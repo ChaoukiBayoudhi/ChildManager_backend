@@ -10,8 +10,8 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @Embeddable
-public class childLocationId implements Serializable {
-    @Column(name="id_child")
-    private Long childId;
+public class taskLocationId implements Serializable {
+    @Column(name="id_task")
+    private Long taskId;
     private Long locationId;
 }

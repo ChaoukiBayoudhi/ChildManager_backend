@@ -18,15 +18,9 @@ public class Location {
     @EqualsAndHashCode.Include
     @Column(unique = true,nullable = false,length = 100)
     private String name;
-    private String Adress;
+    private String Address;
     private String Remarks;
-    @OneToMany(mappedBy="child")
-    private Set<childLocation> children = new HashSet<>();
+    @OneToMany(mappedBy="taskLocation",cascade=CascadeType.ALL)
+    private Set<Task> tasks = new HashSet<>();
 
-    public Location(String name, String adress, String remarks, Set<childLocation> children) {
-        this.name = name;
-        Adress = adress;
-        Remarks = remarks;
-        this.children = children;
-    }
 }

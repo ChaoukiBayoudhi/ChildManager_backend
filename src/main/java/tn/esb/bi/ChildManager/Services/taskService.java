@@ -20,4 +20,9 @@ public class taskService {
             return new ResponseEntity(null, HttpStatus.NO_CONTENT);
         return new ResponseEntity<>(res,HttpStatus.OK);
     }
+//    public Task add(Task t)
+//    {
+//
+//        taskRepos.save(t);
+//    }
 }

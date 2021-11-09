@@ -1,13 +1,13 @@
 package tn.esb.bi.ChildManager.Domains;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import tn.esb.bi.ChildManager.Enumerations.TaskState;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.time.LocalDate;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data //remplace @Getter, @Setter, @RequiredArgsConstructor, @EqualsAndHashCode, @ToString
 @NoArgsConstructor
@@ -21,21 +21,26 @@ public class Task {
     @GeneratedValue
     private Long id;
     @NonNull
+    @EqualsAndHashCode.Include
     private String name;
     private double duration;
     @NonNull
-    private LocalDate startDate;
+    @EqualsAndHashCode.Include
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    private LocalDateTime startDate;
     @NonNull
-    private LocalDate endDate;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    private LocalDateTime endDate;
     private TaskState state;
+    @EqualsAndHashCode.Include
     private String type;
+    @ManyToOne
+    @JoinColumn(name="id_child",referencedColumnName = "id")
+    private Child child;//Le child ciblé par la tâche
+    @ManyToOne
+    @JoinColumn(name="id_location",referencedColumnName = "id")
+    private Location taskLocation;
+    @OneToMany(mappedBy="location")
+    private Set<taskLocation> locations = new HashSet<>();
 
-    public Task(@NonNull String name, double duration, @NonNull LocalDate startDate, @NonNull LocalDate endDate, TaskState state, String type) {
-        this.name = name;
-        this.duration = duration;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.state = state;
-        this.type = type;
-    }
 }
