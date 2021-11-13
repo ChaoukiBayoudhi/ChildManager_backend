@@ -1,6 +1,7 @@
 package tn.esb.bi.ChildManager.Domains;
 
 //import com.sun.istack.NotNull;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,6 +30,7 @@ public class Child {
     //private SimpleDateFormat birthDate;
     @EqualsAndHashCode.Include
     @NonNull
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate birthDate;
     private String studyYear;
     //private String photo; //pour stocker le chemin de la photo
@@ -36,7 +38,12 @@ public class Child {
     private byte[] photo;//pour stocker la photo elle même
     //lien entre Child et Task
     @OneToMany(mappedBy="child",cascade=CascadeType.ALL)
-    private Set<childPlace> childTasks=new HashSet<>();
+    private Set<childPlace> childPlaces=new HashSet<>();
+    @OneToMany(mappedBy="child",cascade=CascadeType.ALL)
+    private Set<Task> childTasks = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name="id_parent",referencedColumnName = "id")
+    private Parent parent;
 
 
 }

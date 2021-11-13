@@ -25,7 +25,7 @@ public class Place {
     private double attitude;
     @NonNull
     private double longitude;
-    @OneToMany(mappedBy="place")
+    @OneToMany(mappedBy="child")
     private Set<childPlace> childrenplaces = new HashSet<>();
 
 }

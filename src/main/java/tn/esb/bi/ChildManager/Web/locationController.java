@@ -1,4 +1,4 @@
-package tn.esb.bi.ChildManager.Controllers;
+package tn.esb.bi.ChildManager.Web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;

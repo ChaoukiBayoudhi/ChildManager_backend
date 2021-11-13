@@ -37,4 +37,5 @@ public class Task {
     @JoinColumn(name="id_location",referencedColumnName = "id")
     private Location taskLocation;
 
+
 }
