@@ -10,6 +10,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/children")
+@CrossOrigin(origins = "http://localhost:4200")
 public class childController {
     @Autowired
     private childService childServ;

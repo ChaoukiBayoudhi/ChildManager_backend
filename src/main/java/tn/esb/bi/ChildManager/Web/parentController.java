@@ -9,6 +9,7 @@ import tn.esb.bi.ChildManager.Services.parentService;
 import javax.validation.Valid;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/parents")
 public class parentController {
     @Autowired

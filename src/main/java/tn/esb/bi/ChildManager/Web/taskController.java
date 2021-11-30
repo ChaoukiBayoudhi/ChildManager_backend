@@ -9,6 +9,8 @@ import tn.esb.bi.ChildManager.Services.taskService;
 import javax.validation.Valid;
 
 @RestController
+//@CrossOrigin(origins = {"http://localhost:4200","http://localhost:3000"})
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/tasks")
 public class taskController {
     @Autowired

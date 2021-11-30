@@ -36,6 +36,4 @@ public class Task {
     @ManyToOne
     @JoinColumn(name="id_location",referencedColumnName = "id")
     private Location taskLocation;
-
-
 }
